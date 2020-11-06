@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KnowMath.Views.ChallengePage"
+             Shell.NavBarIsVisible="False"
+             xmlns:VM="clr-namespace:KnowMath.ViewModels"
+             BackgroundColor="{StaticResource BgDefault}">
+    <ContentPage.BindingContext>
+        <VM:ChallengViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid Margin="10, 20">
+            <Grid.ColumnDefinitions ColumnDefinition="*,*,*"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Text="{Binding Time}" FontSize="28" Grid.Column="0" Grid.Row="0"
+                   HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center"/>
+            
+            <Label Text="{Binding Score}" FontSize="28" Grid.Column="2" Grid.Row="0"
+                   HorizontalOptions="EndAndExpand" HorizontalTextAlignment="Center"/>
+
+
+            <Label Text="{Binding Calculation}" FontSize="28" Grid.Column="1" Grid.Row="1"
+                   HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+
+
+            <Label Grid.ColumnSpan="3" Grid.Row="2" TextColor="{Binding AnswerColor}" FontSize="30" MinimumWidthRequest="20" Text="{Binding Text}"
+                   HorizontalOptions="CenterAndExpand" TextDecorations="Underline"/>
+
+            <Grid Grid.ColumnSpan="3" Grid.Row="3">
+                <Grid.ColumnDefinitions ColumnDefinition="*,*,*"/>
+                <Grid.RowDefinitions ColumnDefinition="*,*,*,*,*"/>
+
+                <Button Text="1" Grid.Column="0" Grid.Row="0" Command="{Binding AppendNumberCommand}" CommandParameter="1"/>
+                <Button Text="2" Grid.Column="1" Grid.Row="0" Command="{Binding AppendNumberCommand}" CommandParameter="2"/>
+                <Button Text="3" Grid.Column="2" Grid.Row="0" Command="{Binding AppendNumberCommand}" CommandParameter="3"/>
+
+
+                <Button Text="4" Grid.Column="0" Grid.Row="1" Command="{Binding AppendNumberCommand}" CommandParameter="4"/>
+                <Button Text="5" Grid.Column="1" Grid.Row="1" Command="{Binding AppendNumberCommand}" CommandParameter="5"/>
+                <Button Text="6" Grid.Column="2" Grid.Row="1" Command="{Binding AppendNumberCommand}" CommandParameter="6"/>
+
+
+                <Button Text="7" Grid.Column="0" Grid.Row="2" Command="{Binding AppendNumberCommand}" CommandParameter="7"/>
+                <Button Text="8" Grid.Column="1" Grid.Row="2" Command="{Binding AppendNumberCommand}" CommandParameter="8"/>
+                <Button Text="9" Grid.Column="2" Grid.Row="2" Command="{Binding AppendNumberCommand}" CommandParameter="9"/>
+
+
+                <Button Text="CE" Grid.Column="0" Grid.Row="3" Command="{Binding ClearNumberCommand}"/>
+                <Button Text="0" Grid.Column="1" Grid.Row="3" Command="{Binding AppendNumberCommand}" CommandParameter="0"/>
+                <Button Text="DEL" Grid.Column="2" Grid.Row="3" Command="{Binding DeleteNumberCommand}"/>
+
+                <Button Text="=" Grid.ColumnSpan="3" Grid.Row="4" Command="{Binding AnswerCommand}"/>
+
+            </Grid>
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

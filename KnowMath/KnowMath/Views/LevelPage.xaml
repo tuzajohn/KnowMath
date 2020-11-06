@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KnowMath.Views.LevelPage"
+             Shell.NavBarIsVisible="False"
+             xmlns:vm="clr-namespace:KnowMath.ViewModels"
+             BackgroundColor="{StaticResource BgDefault}">
+    <ContentPage.BindingContext>
+        <vm:LevelViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" Padding="10,0" >
+
+            <Picker Title="Select Level" 
+                    x:Name="LevelSelection" 
+                    SelectedItem="{Binding SelectedLevel}"
+                    ItemsSource="{Binding Levels}"/>
+
+
+            <Picker Title="Select Arithmetic Type"
+                    x:Name="ArithmeticSelection"
+                    SelectedItem="{Binding SelectedArithmetic}"
+                    ItemsSource="{Binding Arithmetics}"/>
+
+
+            <Button HorizontalOptions="Fill" Text="Start Game"
+                    Padding="10,10" CornerRadius="5"
+                    x:Name="StartGameBtton" Command="{Binding startGameCommand}" />
+
+            <Button HorizontalOptions="Fill" Text="Scores" 
+                    Padding="10,10" CornerRadius="5"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
